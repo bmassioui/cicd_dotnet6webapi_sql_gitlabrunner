@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TodoItem.WebAPI.Models.Responses;
 
 namespace TodoItem.WebAPI.Data;
 
@@ -9,5 +10,5 @@ public class TodoContext : DbContext
     {
     }
 
-    public DbSet<Models.TodoItem> TodoItem { get; set; } = null!;
+    public DbSet<TodoItemResponse> TodoItem { get; set; } = null!;
 }
