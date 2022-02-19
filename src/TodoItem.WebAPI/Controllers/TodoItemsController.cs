@@ -19,7 +19,7 @@ public class TodoItemsController : ControllerBase
         => (_context, _mapper) = (context, mapper);
 
     /// <summary>
-    /// Get TodoItem
+    /// Get TodoItems
     /// </summary>
     /// <param name="includeDeleted?">If NULL or FALSE, the deleted TodoItems are excluded automatically</param>
     /// <returns></returns>
