@@ -18,14 +18,14 @@ public class TodoItemsController : ControllerBase
 
     // GET: api/TodoItems
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TodoItemResponse>>> GetTodoItem()
+    public async Task<ActionResult<IEnumerable<ReadTodoItemResponse>>> GetTodoItem()
     {
         return await _context.TodoItem.ToListAsync();
     }
 
     // GET: api/TodoItems/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<TodoItemResponse>> GetTodoItem(long id)
+    public async Task<ActionResult<ReadTodoItemResponse>> GetTodoItem(long id)
     {
         var todoItem = await _context.TodoItem.FindAsync(id);
 
@@ -40,7 +40,7 @@ public class TodoItemsController : ControllerBase
     // PUT: api/TodoItems/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutTodoItem(long id, TodoItemResponse todoItem)
+    public async Task<IActionResult> PutTodoItem(long id, ReadTodoItemResponse todoItem)
     {
         if (id != todoItem.Id)
         {
@@ -71,7 +71,7 @@ public class TodoItemsController : ControllerBase
     // POST: api/TodoItems
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<TodoItemResponse>> PostTodoItem(TodoItemResponse todoItem)
+    public async Task<ActionResult<ReadTodoItemResponse>> PostTodoItem(ReadTodoItemResponse todoItem)
     {
         _context.TodoItem.Add(todoItem);
         await _context.SaveChangesAsync();
