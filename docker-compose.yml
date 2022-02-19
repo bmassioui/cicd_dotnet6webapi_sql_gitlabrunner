@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  todoitem.webapi:
+    image: ${DOCKER_REGISTRY-}todoitemwebapi
+    build:
+      context: .
+      dockerfile: src/TodoItem.WebAPI/Dockerfile
