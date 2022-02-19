@@ -6,7 +6,7 @@ using TodoItem.WebAPI.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<TodoContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoItemConnectionString")));
 
 // Add services to the container.
 // configure automapper with all automapper profiles from this assembly

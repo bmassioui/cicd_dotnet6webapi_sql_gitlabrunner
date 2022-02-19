@@ -1,8 +1,17 @@
 version: '3.4'
 
 services:
+  todoitemdb:
+    image: mcr.microsoft.com/mssql/server
+
+  portainer:
+    image: portainer/portainer-ce
+
   todoitem.webapi:
     image: ${DOCKER_REGISTRY-}todoitemwebapi
     build:
       context: .
       dockerfile: src/TodoItem.WebAPI/Dockerfile
+
+volumes:
+    portainer_data: null
