@@ -18,15 +18,26 @@ public class TodoItemsController : ControllerBase
     public TodoItemsController(TodoContext context, IMapper mapper)
         => (_context, _mapper) = (context, mapper);
 
-
-    // GET: api/TodoItems
+    /// <summary>
+    /// Get TodoItem
+    /// </summary>
+    /// <param name="includeDeleted?">If NULL or FALSE, the deleted TodoItems are excluded automatically</param>
+    /// <returns></returns>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ReadTodoItemResponse>>> GetTodoItem()
+    public async Task<ActionResult<IEnumerable<ReadTodoItemResponse>>> GetTodoItem(bool? includeDeleted)
     {
-        return Ok(_mapper.Map<IEnumerable<ReadTodoItemResponse>>(await _context.TodoItem.ToListAsync()));
+        var todoItems = _context.TodoItem.AsQueryable();
+
+        if (includeDeleted is null || !includeDeleted.Value) todoItems = todoItems.Where(todoItem => !todoItem.IsDeleted);
+
+        return Ok(_mapper.Map<IEnumerable<ReadTodoItemResponse>>(await todoItems.ToListAsync()));
     }
 
-    // GET: api/TodoItems/5
+    /// <summary>
+    /// Get TodoItem by Id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("{id}")]
     public async Task<ActionResult<ReadTodoItemResponse>> GetTodoItem(long id)
     {
@@ -40,8 +51,12 @@ public class TodoItemsController : ControllerBase
         return Ok(_mapper.Map<ReadTodoItemResponse>(todoItem));
     }
 
-    // PUT: api/TodoItems/5
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    /// <summary>
+    /// Update an existing TodoItem
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="todoItem"></param>
+    /// <returns></returns>
     [HttpPut("{id}")]
     public async Task<IActionResult> PutTodoItem(long id, UpdateTodoItemRequest todoItem)
     {
@@ -69,8 +84,11 @@ public class TodoItemsController : ControllerBase
         return NoContent();
     }
 
-    // POST: api/TodoItems
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    /// <summary>
+    /// Create TodoItem
+    /// </summary>
+    /// <param name="todoItem"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<ActionResult<ReadTodoItemResponse>> PostTodoItem(CreateTodoItemRequest todoItem)
     {
@@ -81,7 +99,11 @@ public class TodoItemsController : ControllerBase
         return CreatedAtAction("GetTodoItem", new { id = todoItemToCreate.Id }, todoItemToCreate);
     }
 
-    // DELETE: api/TodoItems/5
+    /// <summary>
+    /// Mark TodoItem as Soft deleted
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTodoItem(long id)
     {
