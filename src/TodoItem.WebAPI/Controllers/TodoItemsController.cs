@@ -62,7 +62,12 @@ public class TodoItemsController : ControllerBase
     {
         if (id != todoItem.Id) return BadRequest();
 
-        var todoItemToUpdate = _mapper.Map<TodoItemEntity>(todoItem);
+        var todoItemToUpdate = await _context.TodoItem.FindAsync(id);
+
+        if (todoItemToUpdate == null) return NotFound();
+
+        _mapper.Map(todoItem, todoItemToUpdate);
+
         _context.Entry(todoItemToUpdate).State = EntityState.Modified;
 
         try
