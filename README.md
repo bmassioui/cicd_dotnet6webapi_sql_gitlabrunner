@@ -24,3 +24,8 @@ Using GitLab [runner](https://docs.gitlab.com/runner/) to setup [CI/CD Pipelines
 - (Docker)[https://www.docker.com/]
 - (Docker compose)[https://docs.docker.com/compose/]
 - (Portainer)[https://www.portainer.io/]
+
+## References
+- (Self-Host GitLab and GitLab runner)[https://medium.com/@rukeith/how-to-use-docker-to-build-a-self-host-gitlab-and-gitlab-runner-781981dc4d03]
+- (Reset GitLab Username and PWD)[https://www.youtube.com/watch?v=NgNoTVL9PRw&ab_channel=LinuxHelp]
+- (Reset GitLab Username and PWD)[https://stackoverflow.com/a/55747403]
