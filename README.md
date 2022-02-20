@@ -26,14 +26,14 @@ Using GitLab [runner](https://docs.gitlab.com/runner/) to setup [CI/CD Pipelines
     - Then, disable `Enable shared runners for this project`
     - Use your cmd to register GitLab Runner to GitLab, by executing the following script:
     ```
-     docker-compose exec gitlab-runner \
-    gitlab-runner register \
-    --non-interactive \
-    --url "http://localhost:9090/" \
-    --registration-token "Qzpvj5TdF_MXv7j4QBWa" \
-    --executor docker \
-    --description "Dotnet 6 Web.API Runner" \
-    --docker-image "docker:stable"
+      docker-compose exec gitlab-runner \
+      gitlab-runner register \
+      --non-interactive \
+      --url "[gitlab-ce IP](https://stackoverflow.com/a/20686101)" \
+      --registration-token "[gitlab-runner token](https://devops.stackexchange.com/a/4617)" \
+      --executor docker \
+      --description "Dotnet 6 Web.API Runner" \
+      --docker-image "docker:stable"
     ```
 
 
