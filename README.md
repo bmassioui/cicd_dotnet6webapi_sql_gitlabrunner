@@ -39,18 +39,18 @@ Using GitLab [runner](https://docs.gitlab.com/runner/) to setup [CI/CD Pipelines
 
 
 ## Used Tech
-- (dotnet 6)[https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6]
-- (C# 10)[https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-10]
-- (Automapper)[https://automapper.org/]
-- (EF Core 6)[https://docs.microsoft.com/en-us/ef/core/]
-- (MSQL Server)[https://www.microsoft.com/en-us/sql-server/sql-server-downloads]
-- (GitLab Runner)[https://docs.gitlab.com/runner/]
-- (Docker)[https://www.docker.com/]
-- (Docker compose)[https://docs.docker.com/compose/]
-- (Portainer)[https://www.portainer.io/]
+- [dotnet 6](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6)
+- [C# 10](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-10)
+- [Automapper](https://automapper.org/)
+- [EF Core 6](https://docs.microsoft.com/en-us/ef/core/)
+- [MSQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+- [GitLab Runner](https://docs.gitlab.com/runner/)
+- [Docker](https://www.docker.com/)
+- [Docker compose](https://docs.docker.com/compose/)
+- [Portainer](https://www.portainer.io/)
 
 ## References
-- (Self-Host GitLab and GitLab runner)[https://medium.com/@rukeith/how-to-use-docker-to-build-a-self-host-gitlab-and-gitlab-runner-781981dc4d03]
-- (How to install GitLab using Docker Compose?)[https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/]
-- (Reset GitLab Username and PWD)[https://www.youtube.com/watch?v=NgNoTVL9PRw&ab_channel=LinuxHelp]
-- (Reset GitLab Username and PWD)[https://stackoverflow.com/a/55747403]
+- [Self-Host GitLab and GitLab runner](https://medium.com/@rukeith/how-to-use-docker-to-build-a-self-host-gitlab-and-gitlab-runner-781981dc4d03)
+- [How to install GitLab using Docker Compose?](https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/)
+- [Reset GitLab Username and PWD](https://www.youtube.com/watch?v=NgNoTVL9PRw&ab_channel=LinuxHelp)
+- [Reset GitLab Username and PWD](https://stackoverflow.com/a/55747403)
