@@ -54,3 +54,5 @@ Using GitLab [runner](https://docs.gitlab.com/runner/) to setup [CI/CD Pipelines
 - [How to install GitLab using Docker Compose?](https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/)
 - [Reset GitLab Username and PWD](https://www.youtube.com/watch?v=NgNoTVL9PRw&ab_channel=LinuxHelp)
 - [Reset GitLab Username and PWD](https://stackoverflow.com/a/55747403)
+- [Gitlab CI template for Dotnet Core](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/dotNET-Core.gitlab-ci.yml)
+- [Gitlab CI/CD for Docker Continers](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Docker.gitlab-ci.yml)
