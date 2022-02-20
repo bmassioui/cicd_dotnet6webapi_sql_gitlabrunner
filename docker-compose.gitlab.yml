@@ -5,10 +5,10 @@ services:
     image: 'gitlab/gitlab-ce'
     container_name: 'gitlab-web'
     restart: unless-stopped
-    hostname: localhost
+    hostname: gitlab.bmassioui.com
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://localhost:9090'
+        external_url 'http://gitlab.bmassioui.com:9090'
         gitlab_rails['gitlab_shell_ssh_port'] = 2224
     networks:
       - gitlab-network
