@@ -29,12 +29,11 @@ Using GitLab [runner](https://docs.gitlab.com/runner/) to setup [CI/CD Pipelines
      docker-compose exec gitlab-runner \
     gitlab-runner register \
     --non-interactive \
-    --url "http://gitlab-web:9090" \
-    --registration-token "-DSusq3xsRtrGHGyqznc" \
+    --url "http://localhost:9090/" \
+    --registration-token "Qzpvj5TdF_MXv7j4QBWa" \
     --executor docker \
     --description "Dotnet 6 Web.API Runner" \
-    --docker-image "docker:stable" \
-    --docker-volumes /var/run/docker.sock:/var/run/docker.sock
+    --docker-image "docker:stable"
     ```
 
 
