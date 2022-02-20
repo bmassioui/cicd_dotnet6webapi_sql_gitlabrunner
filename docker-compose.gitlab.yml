@@ -1,14 +1,14 @@
 version: '3.4'
 
 services:
-  web:
+  gitlab-web:
     image: 'gitlab/gitlab-ce'
-    container_name: 'gitlab'
-    restart: always
-    hostname: gitlab.bmassioui.com
+    container_name: 'gitlab-web'
+    restart: unless-stopped
+    hostname: localhost
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://gitlab.bmassioui.com:9090'
+        external_url 'http://localhost:9090'
         gitlab_rails['gitlab_shell_ssh_port'] = 2224
     networks:
       - gitlab-network
@@ -21,6 +21,18 @@ services:
       - '/srv/gitlab/config:/etc/gitlab'
       - '/srv/gitlab/logs:/var/log/gitlab'
       - '/srv/gitlab/data:/var/opt/gitlab'
+
+  gitlab-runner:
+    container_name: gitlab-runner
+    image: 'gitlab/gitlab-runner:latest'
+    restart: unless-stopped
+    depends_on:
+      - gitlab-web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/gitlab-runner
+    networks:
+      - gitlab-network
 
 networks:
   gitlab-network:
