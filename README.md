@@ -14,11 +14,11 @@ Using GitLab [runner](https://docs.gitlab.com/runner/) to setup [CI/CD Pipelines
       - `Portainer` : [Portainer](localhost:9000)
       - `TodoItem Sql Server Db` : [TodoItemDb](localhost:1433), **User: sa, Password: Bob12345678**
 
-## GitLab
-  - **How to run GitLab CE + GitLab Runner**:
+## GitLab - (all on-premise or Hybrid)
+  - **1 --> How to run GitLab CE + GitLab Runner - All On-Premise(Not working in Windows OS - Network Issue  😅)**:
     - navigate to the project root where ... docker compose files are located and run the following command:
     ```
-     docker-compose -f docker-compose.gitlab.yml up -d
+     docker-compose -f docker-compose.gitlab-all-onpremise-networking-issue-in-windows.yml up -d
     ```
     - Open GitLab via the browser : [Gitlab UI](http://localhost:9090)
     - Follow this suggested [solution](https://stackoverflow.com/a/55747403) to reset *Root*'s password.
@@ -31,6 +31,26 @@ Using GitLab [runner](https://docs.gitlab.com/runner/) to setup [CI/CD Pipelines
       --non-interactive \
       --url "[gitlab-ce IP](https://stackoverflow.com/a/20686101)" \
       --registration-token "[gitlab-runner token](https://devops.stackexchange.com/a/4617)" \
+      --executor docker \
+      --description "Dotnet 6 Web.API Runner" \
+      --docker-image "docker:stable"
+    ```
+
+  - **2 --> How to run GitLab Runner - Hybrid**:
+    - navigate to the project root where ... docker compose files are located and run the following command:
+    ```
+     docker-compose -f docker-compose.gitlabrunner-on-premise.yml up -d
+    ```
+    - Open GitLab via the browser : [Gitlab UI](https://gitlab.com/)
+    - After creating new repo, navigate to `https://gitlab.com/{username|root}/{projectname}/-/settings/ci_cd`, and expend runners.
+    - Then, disable `Enable shared runners for this project` - Shared runners are paid  🤓
+    - Use your cmd to register GitLab Runner to GitLab, by executing the following script:
+    ```
+      docker-compose exec gitlab-runner \
+      gitlab-runner register \
+      --non-interactive \
+      --url "https://gitlab.com/" \
+      --registration-token "project runner token" \
       --executor docker \
       --description "Dotnet 6 Web.API Runner" \
       --docker-image "docker:stable"
